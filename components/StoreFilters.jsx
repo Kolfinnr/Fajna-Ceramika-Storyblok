@@ -1,15 +1,18 @@
 export default function StoreFilters({
+  blok,
   categories,
   activeCategory,
   onCategoryChange,
   showSold,
   onToggleShowSold,
 }) {
+  const resolvedCategories = blok?.categories ?? categories;
+
   return (
     <div className="border-b border-stone-200 sticky top-20 bg-stone-50/95 z-40 backdrop-blur">
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
         <div className="flex items-center gap-4 overflow-x-auto no-scrollbar pb-1">
-          {categories.map((category) => (
+          {resolvedCategories.map((category) => (
             <button
               key={category.key}
               type="button"

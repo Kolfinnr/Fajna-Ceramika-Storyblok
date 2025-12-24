@@ -1,4 +1,15 @@
-export default function ContactCard({ title, subtitle, email, instagramHandle }) {
+export default function ContactCard({
+  blok,
+  title,
+  subtitle,
+  email,
+  instagramHandle,
+}) {
+  const resolvedTitle = blok?.title ?? title;
+  const resolvedSubtitle = blok?.subtitle ?? subtitle;
+  const resolvedEmail = blok?.email ?? email;
+  const resolvedInstagramHandle = blok?.instagramHandle ?? instagramHandle;
+
   return (
     <div className="bg-stone-100 py-20 border-y border-stone-200">
       <div className="max-w-2xl mx-auto px-6">
@@ -7,8 +18,10 @@ export default function ContactCard({ title, subtitle, email, instagramHandle })
 
           <div className="flex-1 space-y-6 relative z-10">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight text-stone-900">{title}</h2>
-              <p className="text-stone-500 text-base">{subtitle}</p>
+              <h2 className="text-2xl font-semibold tracking-tight text-stone-900">
+                {resolvedTitle}
+              </h2>
+              <p className="text-stone-500 text-base">{resolvedSubtitle}</p>
             </div>
 
             <div className="space-y-3">
@@ -28,15 +41,18 @@ export default function ContactCard({ title, subtitle, email, instagramHandle })
                 <div className="p-2 bg-stone-50 rounded-lg border border-stone-100">
                   <i data-lucide="mail" className="w-4 h-4"></i>
                 </div>
-                <a href={`mailto:${email}`} className="text-base hover:text-olive-600 transition-colors">
-                  {email}
+                <a
+                  href={`mailto:${resolvedEmail}`}
+                  className="text-base hover:text-olive-600 transition-colors"
+                >
+                  {resolvedEmail}
                 </a>
               </div>
               <div className="flex items-center gap-3 text-stone-600">
                 <div className="p-2 bg-stone-50 rounded-lg border border-stone-100">
                   <i data-lucide="instagram" className="w-4 h-4"></i>
                 </div>
-                <span className="text-base">{instagramHandle}</span>
+                <span className="text-base">{resolvedInstagramHandle}</span>
               </div>
             </div>
           </div>

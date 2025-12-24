@@ -1,10 +1,13 @@
 import Link from "next/link";
 
-export default function FeaturedGrid({ title, items }) {
+export default function FeaturedGrid({ blok, title, items }) {
+  const resolvedTitle = blok?.title ?? title;
+  const resolvedItems = blok?.items ?? items;
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-24">
       <div className="flex items-end justify-between mb-12">
-        <h2 className="text-3xl font-semibold tracking-tight">{title}</h2>
+        <h2 className="text-3xl font-semibold tracking-tight">{resolvedTitle}</h2>
         <Link
           href="/store"
           className="text-base text-olive-600 hover:text-olive-500 font-medium flex items-center gap-1"
@@ -14,7 +17,7 @@ export default function FeaturedGrid({ title, items }) {
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">
-        {items.map((item) => (
+        {resolvedItems.map((item) => (
           <div key={item.name} className="group cursor-pointer">
             <div className="aspect-[3/4] overflow-hidden rounded-xl bg-stone-200 relative">
               <img
