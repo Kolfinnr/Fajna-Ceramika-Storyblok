@@ -8,14 +8,16 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-8 h-8 flex items-center justify-center bg-olive-500 rounded-lg text-white group-hover:bg-olive-600 transition-colors">
-            <i data-lucide="amphora" className="w-5 h-5"></i>
-          </div>
-          <span className="font-semibold text-xl tracking-tight text-stone-900">
-            Fajna Ceramika
-          </span>
-        </Link>
+<Link href="/" className="group">
+  <span className="flex items-center gap-2">
+    <span className="relative w-8 h-8 flex items-center justify-center bg-olive-500 rounded-lg text-white group-hover:bg-olive-600 transition-colors">
+      <i data-lucide="amphora" className="w-5 h-5"></i>
+    </span>
+    <span className="font-semibold text-xl tracking-tight text-stone-900">
+      Fajna Ceramika
+    </span>
+  </span>
+</Link>
 
         <div className="hidden md:flex items-center gap-8">
           <Link href="/" className="text-base font-medium text-stone-600 hover:text-stone-900 transition-colors">
